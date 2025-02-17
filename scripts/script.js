@@ -16,11 +16,28 @@ const games = [
     {name: "Xenoblade Chronicles 2", releaseDate: "2017-12-01", genre: "Action RPG", cover: "images/xenoblade-chronicles-2.jpg"},
     {name: "The Elder Scrolls V: Skyrim", releaseDate: "2017-11-17", genre: "Action RPG", cover: "images/the-elder-scrolls-v-skyrim.jpg"},
 ]
+const ItemsPerPage = 5;
+let currentPage = 1;
 
 function renderCollection() {
+    document.getElementById('page').innerText = currentPage;
     const collection = document.getElementById('collection');
     collection.innerHTML = '';
-    games.forEach(game => {
+    let filteredGames = games.slice((currentPage - 1) * ItemsPerPage, currentPage * ItemsPerPage);
+
+    if (currentPage < 2) {
+        document.getElementById('prevBtn').disabled = true;
+    }else {
+        document.getElementById('prevBtn').disabled = false;
+    }
+
+    if (filteredGames.length < ItemsPerPage) {
+        document.getElementById('nextBtn').disabled = true;
+    }else {
+        document.getElementById('nextBtn').disabled = false;
+    }
+
+    filteredGames.forEach(game => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td><img src="${game.image}" alt="${game.name}" class="item-image"></td>
@@ -30,6 +47,16 @@ function renderCollection() {
         `;
         collection.appendChild(row);
     });
+}
+
+function previousPage() {
+    currentPage--;
+    renderCollection();
+}
+
+function nextPage() {
+    currentPage++;
+    renderCollection();
 }
 
 renderCollection();
