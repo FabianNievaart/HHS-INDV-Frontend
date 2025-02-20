@@ -20,6 +20,17 @@
 
     <main class="content">
         <h1>Game Verzameling</h1>
+        <select id="sort" onchange="sortCollection(value)">
+            <option value="">Sorteer op:</option>
+            <option value="name">Naam</option>
+            <option value="releaseDate">Datum Uitgebracht</option>
+            <option value="genre">Genre</option>
+        </select>
+        <button id="sortOrderBtn" onclick="toggleSortOrder()">⬆️</button>
+
+        <select id="filter" onchange="filterCollection(value)">
+            <option value="">Filter op genre:</option>
+        </select>
         <table>
             <thead>
                 <tr>
@@ -33,7 +44,7 @@
         </table>
 
         <button id="prevBtn" onclick="previousPage()">Vorige</button>
-        <span id="page"></span>
+        <span id="page"></span>/<span id="maxPage"></span>
         <button id="nextBtn" onclick="nextPage()">Volgende</button>
     </main>
 
