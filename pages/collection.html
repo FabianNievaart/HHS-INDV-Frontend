@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="nl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verzameling - Pagina 2</title>
-    <link rel="stylesheet" href="../styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HHS Frontend - Games</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="../scripts/games.js"></script>
     <script src="../scripts/script.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <ul class="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="collection.html">Verzameling</a></li>
-            <li><a href="add.html">Item toevoegen</a></li>
-        </ul>
+      <ul">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collection.html" class="active">Game Verzameling</a></li>
+        <li><a href="add.html">Game Toevoegen</a></li>
+      </ul>
     </nav>
 
-    <main class="content">
-        <h1>Game Verzameling</h1>
-        <select id="sort" onchange="sortCollection(value)">
-            <option value="">Sorteer op:</option>
-            <option value="name">Naam</option>
-            <option value="releaseDate">Datum Uitgebracht</option>
-            <option value="genre">Genre</option>
-        </select>
-        <button id="sortOrderBtn" onclick="toggleSortOrder()">⬆️</button>
+    <main>
+      <h1>Game Verzameling</h1>
+      <select id="sort" onchange="sortCollection(value)">
+        <option value="">Sorteer op:</option>
+        <option value="name">Naam</option>
+        <option value="releaseDate">Datum Uitgebracht</option>
+        <option value="genre">Genre</option>
+      </select>
+      <button id="sortOrderBtn" onclick="toggleSortOrder()">⬆️</button>
 
-        <select id="filter" onchange="filterCollection(value)">
-            <option value="">Filter op genre:</option>
-        </select>
-        <table>
-            <thead>
-                <tr>
-                    <th>Afbeelding</th>
-                    <th>Naam</th>
-                    <th>Datum Uitgebracht</th>
-                    <th>Genre</th>
-                </tr>
-            </thead>
-            <tbody id="collection"></tbody>
-        </table>
+      <select id="filter" onchange="filterCollection(value)">
+        <option value="">Filter op genre:</option>
+      </select>
+      <label for="itemsPerPage">items per pagina: </label>
+      <input
+        id="itemsPerPage"
+        type="number"
+        min="1"
+        value="5"
+        onchange="renderCollection()"
+      />
+      <table>
+        <thead>
+          <tr>
+            <th>Afbeelding</th>
+            <th>Naam</th>
+            <th>Datum Uitgebracht</th>
+            <th>Genre</th>
+          </tr>
+        </thead>
+        <tbody id="collection"></tbody>
+      </table>
 
-        <button id="prevBtn" onclick="previousPage()">Vorige</button>
-        <span id="page"></span>/<span id="maxPage"></span>
-        <button id="nextBtn" onclick="nextPage()">Volgende</button>
+      <button id="prevBtn" onclick="previousPage()">Vorige</button>
+      <span id="page"></span>/<span id="maxPage"></span>
+      <button id="nextBtn" onclick="nextPage()">Volgende</button>
     </main>
 
     <footer>
-        <p>&copy; 2025 Fabian Nievaart</p>
+      <p>&copy; 2025 Fabian Nievaart</p>
     </footer>
-</body>
-
+  </body>
 </html>
