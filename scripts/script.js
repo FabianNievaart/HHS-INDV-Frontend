@@ -1,3 +1,12 @@
+let localGames = JSON.parse(localStorage.getItem('games'));
+let ItemsPerPage = 5;
+let currentPage = 1;
+let maxPage;
+let filteredGames;
+let ascending = true;
+let sorting = '';
+let filter = '';
+
 const genres = localGames.map((game) => game.genre);
 const uniqueGenres = [...new Set(genres)];
 const selectFilter = document.getElementById('filter');
@@ -7,15 +16,6 @@ uniqueGenres.forEach((genre) => {
   option.innerText = genre;
   selectFilter.appendChild(option);
 });
-
-let localGames = JSON.parse(localStorage.getItem('games'));
-let ItemsPerPage = 5;
-let currentPage = 1;
-let maxPage;
-let filteredGames;
-let ascending = true;
-let sorting = '';
-let filter = '';
 
 function renderCollection() {
   localGames = JSON.parse(localStorage.getItem('games'));
