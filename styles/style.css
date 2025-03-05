@@ -95,6 +95,45 @@ td img {
   border-radius: 5px;
 }
 
+/* Page Title */
+h1 {
+  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="date"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Submit Button */
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
 /* Buttons */
 button {
   background-color: #007bff;
@@ -127,4 +166,19 @@ footer {
   text-align: center;
   padding: 10px 0;
   margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  main {
+      max-width: 90%;
+      padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 8px;
+  }
 }
