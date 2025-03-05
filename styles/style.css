@@ -21,8 +21,6 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap; /* Ensures responsiveness */
 }
 
 nav li {
@@ -180,6 +178,19 @@ footer {
       padding: 8px;
   }
 
+  nav ul{
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 1100px){
+  nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
   a{
     padding: 0px !important;
   }
