@@ -5,7 +5,7 @@ function addGame() {
     name: document.getElementById('name').value,
     releaseDate: document.getElementById('date').value,
     genre: document.getElementById('genre').value,
-    cover: '',
+    cover: '../images/placeholder.jpg',
   };
 
   localGames.push(newGame);
